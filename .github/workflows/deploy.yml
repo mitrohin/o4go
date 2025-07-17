@@ -52,15 +52,3 @@ jobs:
         source: "build/*"
         target: "/var/www/o4go/data/www/o4go.ru/"
         strip_components: 1
-        
-    - name: Set permissions
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd /var/www/o4go/data/www/o4go.ru/
-          chmod -R 755 .
-          chown -R www-data:www-data . 
