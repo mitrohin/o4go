@@ -39,8 +39,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /var/www/o4go/data/www/o4go.ru/
-          rm -rf *
-          rm -rf .*
+          find . -mindepth 1 -delete
         script_stop: true
         
     - name: Upload build files
