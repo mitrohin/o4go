@@ -1,0 +1,38 @@
+/* Эффект shimmer-градиента для кнопок */
+.custom-shimmer {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.custom-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(217,217,217,0.7) 0%, #ededed 50%, rgba(217,217,217,0.7) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+  pointer-events: none;
+  animation: none;
+}
+.custom-shimmer:hover::after {
+  opacity: 1;
+  animation: shimmer-move 1.2s linear infinite;
+}
+@keyframes shimmer-move {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.custom-shimmer > * {
+  position: relative;
+  z-index: 2;
+}
+
+.shimmer-content {
+  position: relative;
+  z-index: 2;
+} 
