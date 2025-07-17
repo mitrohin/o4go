@@ -24,11 +24,11 @@ jobs:
     - name: Install image optimization dependencies
       run: npm install --save-dev imagemin imagemin-mozjpeg imagemin-pngquant imagemin-svgo
       
+    - name: Optimize images before build
+      run: node optimize-images.js
+      
     - name: Build project
       run: npm run build
-      
-    - name: Optimize images
-      run: node optimize-images.js
       
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.3
