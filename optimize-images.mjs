@@ -21,12 +21,7 @@ const __dirname = path.dirname(__filename);
       plugins: [
         mozjpeg({ quality: 75 }),
         pngquant({ quality: [0.6, 0.8] }),
-        svgo({
-          plugins: [
-            { removeViewBox: false },
-            { removeEmptyAttrs: false }
-          ]
-        })
+        svgo()
       ]
     });
     
