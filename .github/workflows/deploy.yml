@@ -38,7 +38,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /www/o4go.ru/
+          cd /var/www/o4go/data/www/o4go.ru/
           rm -rf *
           rm -rf .*
         script_stop: true
@@ -51,7 +51,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: "build/*"
-        target: "/www/o4go.ru/"
+        target: "/var/www/o4go/data/www/o4go.ru/"
         strip_components: 1
         
     - name: Set permissions
@@ -62,6 +62,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /www/o4go.ru/
+          cd /var/www/o4go/data/www/o4go.ru/
           chmod -R 755 .
           chown -R www-data:www-data . 
