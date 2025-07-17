@@ -25,7 +25,7 @@ jobs:
       run: npm install --save-dev imagemin imagemin-mozjpeg imagemin-pngquant imagemin-svgo
       
     - name: Optimize images before build
-      run: node optimize-images.js
+      run: node --experimental-modules optimize-images.js
       
     - name: Build project
       run: npm run build

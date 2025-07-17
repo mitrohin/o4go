@@ -1,13 +1,18 @@
-const imagemin = require('imagemin');
-const mozjpeg = require('imagemin-mozjpeg');
-const pngquant = require('imagemin-pngquant');
-const svgo = require('imagemin-svgo');
-const path = require('path');
+import imagemin from 'imagemin';
+import mozjpeg from 'imagemin-mozjpeg';
+import pngquant from 'imagemin-pngquant';
+import svgo from 'imagemin-svgo';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 (async () => {
   try {
     const inputDir = path.join(__dirname, 'public/images/*.{jpg,jpeg,png,svg}');
-const outputDir = path.join(__dirname, 'public/images-optimized');
+    const outputDir = path.join(__dirname, 'public/images-optimized');
     
     console.log('Начинаю оптимизацию изображений...');
     
@@ -26,10 +31,6 @@ const outputDir = path.join(__dirname, 'public/images-optimized');
     });
     
     console.log(`Оптимизировано ${files.length} изображений!`);
-    
-    // Заменяем оригинальные изображения оптимизированными
-    const fs = require('fs');
-    const path = require('path');
     
     // Копируем оптимизированные изображения обратно в public/images
     const optimizedFiles = fs.readdirSync(outputDir);
