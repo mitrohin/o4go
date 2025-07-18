@@ -66,7 +66,7 @@ export default function AdvantagesSection() {
   };
 
   return (
-    <section className="relative w-full flex flex-col items-center bg-[#fffefb] py-[120px] px-4 overflow-hidden">
+    <section className="relative w-full flex flex-col items-center bg-[#fffefb] py-[20px] px-4 overflow-hidden">
       {/* Заголовок */}
       <div className="text-center mb-[72px]">
         <h2 className="font-playfair italic text-[40px] tablet:text-[64px] text-[#000] leading-[1.1] mb-0">Преимущества</h2>

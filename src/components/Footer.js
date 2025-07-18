@@ -1,6 +1,20 @@
 import { imgDinaNasyrovaNc5M3Jn840Unsplash, imgOgorodLight1, imgLine7 } from "./images";
+import React, { useState } from "react";
+import Modal from "./Modal";
 
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  function handleOrderClick(e) {
+    e.preventDefault();
+    setIsModalOpen(true);
+  }
+  function handleModalClose() {
+    setIsModalOpen(false);
+  }
+  function handleModalConfirm() {
+    setIsModalOpen(false);
+    window.open("https://wa.me/79164280183", "_blank");
+  }
   return (
     <footer className="relative w-full min-h-[650px] md:min-h-[650px] bg-transparent mt-10">
       {/* Фоновое изображение */}
@@ -41,7 +55,7 @@ export default function Footer() {
             <a href="#program" className="font-montserrat text-[16px] text-white text-left leading-none not-italic cursor-pointer">Что такое FMD</a>
             <a href="#menu" className="font-montserrat text-[16px] text-white text-left leading-none not-italic cursor-pointer">Меню FMD</a>
             <a href="#reviews" className="font-montserrat text-[16px] text-white text-left leading-none not-italic cursor-pointer">Отзывы</a>
-            <a href="#order" className="font-montserrat text-[16px] text-white text-left leading-none not-italic cursor-pointer">Заказать</a>
+            <a href="#order" className="font-montserrat text-[16px] text-white text-left leading-none not-italic cursor-pointer" onClick={handleOrderClick}>Заказать</a>
             <a href="tel:+79164280183" className="font-montserrat text-[16px] text-white text-left leading-none not-italic cursor-pointer mt-8">+7 (916) 428-01-83</a>
           </div>
           {/* Логотип */}
@@ -89,7 +103,7 @@ export default function Footer() {
               <a href="#program" className="font-montserrat text-[20px] text-white text-left leading-none not-italic cursor-pointer">Что такое FMD</a>
               <a href="#menu" className="font-montserrat text-[20px] text-white text-left leading-none not-italic cursor-pointer">Меню FMD</a>
               <a href="#reviews" className="font-montserrat text-[20px] text-white text-left leading-none not-italic cursor-pointer">Отзывы</a>
-              <a href="#order" className="font-montserrat text-[20px] text-white text-left leading-none not-italic cursor-pointer">Заказать</a>
+              <a href="#order" className="font-montserrat text-[20px] text-white text-left leading-none not-italic cursor-pointer" onClick={handleOrderClick}>Заказать</a>
               <a href="tel:+79164280183" className="font-montserrat text-[20px] text-white text-left leading-none not-italic cursor-pointer mt-8">+7 (916) 428-01-83</a>
             </div>
             {/* Подписка */}
@@ -132,6 +146,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        {/* Модальное окно заказа */}
+        <Modal open={isModalOpen} onClose={handleModalClose} onConfirm={handleModalConfirm} />
       </div>
     </footer>
   );

@@ -14,7 +14,7 @@ export default function PriceDeliverySection() {
         {/* Картинка слева */}
         <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 h-[320px] md:h-[625px] bg-center bg-cover flex-shrink-0" style={{ backgroundImage: `url('${imgE03B81Df852245A787Cc6F2D65Da03661}')` }} />
         {/* Текст справа */}
-        <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:ml-8 px-4 md:px-10">
+        <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:ml-8 px-4 md:px-10 pb-8 md:pb-0">
           <div className="font-poiret text-[32px] text-[#000] mb-24 leading-tight">Стоимость меню<br />21 800</div>
           <div className="font-montserrat text-[16px] md:text-[20px] text-[#000] leading-normal mb-2">Меню включает 5 дней основной диеты и 2 дополнительных дня для плавного выхода.<br /><br />В пределах МКАД доставка осуществляется бесплатно.<br /><br />Стоимость доставки за МКАД:<br />До 5 км - 500 рублей<br />Далее 5 км - 45 рублей за км<br /><br />Оплата осуществляется online (по ссылке или по QR-коду) после выставления счета.</div>
         </div>
@@ -22,7 +22,7 @@ export default function PriceDeliverySection() {
       {/* Второй блок: вопросы и доставка */}
       <div className="flex flex-col-reverse md:flex-row gap-0 items-center w-full max-w-[1200px] mx-auto -mt-[2px]">
         {/* Текст слева (на десктопе) */}
-        <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:mr-8 px-4 md:px-10">
+        <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:mr-8 px-4 md:px-10 pb-0 md:pb-0">
           <div className="font-poiret text-[32px] text-[#000] mb-24 leading-tight">Остались вопросы?</div>
           <div className="font-montserrat text-[16px] md:text-[20px] text-[#000] leading-normal mb-4">
             Если у вас остались вопросы, свяжитесь с нами по WhatsApp.<br /><br />Наши специалисты с удовольствием ответят на них, помогут определиться с датами старта или при необходимости порекомендуют другую оптимальную для вас программу.

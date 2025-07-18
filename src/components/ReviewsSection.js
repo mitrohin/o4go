@@ -112,7 +112,7 @@ export default function ReviewsSection() {
   const rightDisabled = idx >= total - visibleCount;
 
   return (
-    <section id="reviews" className="relative w-full flex flex-col items-center justify-center py-24 bg-[#fffefb]">
+    <section id="reviews" className="relative w-full flex flex-col items-center justify-center py-12 bg-[#fffefb]">
       <div className="text-center mb-16">
         <h2 className="font-poiret text-[40px] text-[#000] uppercase tracking-widest">Отзывы</h2>
       </div>

@@ -18,9 +18,9 @@ export default function HowItWorksSection() {
         {/* 1. Ограничение калорий и белков */}
         <div className="flex flex-col md:flex-row gap-8 items-center w-full max-w-[1200px] mx-auto">
           <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 h-[320px] md:h-[625px] bg-center bg-cover flex-shrink-0" style={{ backgroundImage: `url('${img43Cfcae505Bb405BAdae96Dac10A5Bef1}')` }} />
-          <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:ml-8 px-4 md:px-10" style={{paddingTop:0,paddingBottom:0}}>
+          <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:ml-8 px-4 md:px-10 pb-32 md:pb-0" style={{paddingTop:0,paddingBottom:0}}>
             <div className="font-poiret text-[32px] text-[#000] mb-4 leading-tight">Ограничение<br />калорий и белков</div>
-            <div className="font-montserrat text-[16px] text-[#000] leading-normal">
+            <div className="font-montserrat text-[16px] text-[#000] leading-normal pb-32 md:pb-0">
               При FMD калорийность питания снижается примерно до 40% от вашей стандартной суточной нормы.<br /><br />
               При этом основу рациона составляют полезные растительные жиры, а количество белков и углеводов строго контролируется.<br />
               Это нужно для того, чтобы замедлить работу сигнального пути роста клеток (mTOR).<br /><br />
@@ -30,9 +30,9 @@ export default function HowItWorksSection() {
         </div>
         {/* 2. Организм думает, что это голодание */}
         <div className="flex flex-col-reverse md:flex-row gap-8 items-center w-full max-w-[1200px] mx-auto -mt-16">
-          <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:mr-8 px-4 md:px-10" style={{paddingTop:0,paddingBottom:0}}>
+          <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:mr-8 px-4 md:px-10 pb-32 md:pb-0" style={{paddingTop:0,paddingBottom:0}}>
             <div className="font-poiret text-[32px] text-[#000] mb-4 leading-tight">Организм думает,<br />что это голодание</div>
-            <div className="font-montserrat text-[16px] text-[#000] leading-normal">
+            <div className="font-montserrat text-[16px] text-[#000] leading-normal pb-32 md:pb-0">
               Еда в рационе подобрана так по составу и калорийности, что тело чувствует это как период голодания.<br />
               <br />Что происходит внутри?<br /><br />
               Запускается аутофагия — процесс очищения клеток от повреждённых, ненужных компонентов.<br /><br />
@@ -45,9 +45,9 @@ export default function HowItWorksSection() {
         {/* 3. Польза для здоровья без голодания */}
         <div className="flex flex-col md:flex-row gap-8 items-center w-full max-w-[1200px] mx-auto -mt-16">
           <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 h-[320px] md:h-[640px] bg-center bg-cover flex-shrink-0" style={{ backgroundImage: `url('${img3Befb5566E2345Ca820F5Feb912D87191}')` }} />
-          <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:ml-8 px-4 md:px-10" style={{paddingTop:0,paddingBottom:0}}>
+          <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:ml-8 px-4 md:px-10 pb-0 md:pb-0" style={{paddingTop:0,paddingBottom:0}}>
             <div className="font-poiret text-[32px] text-[#000] mb-4 leading-tight">Польза для здоровья<br />без голодания</div>
-            <div className="font-montserrat text-[16px] text-[#000] leading-normal">
+            <div className="font-montserrat text-[16px] text-[#000] leading-normal pb-0 md:pb-0">
               С FMD вы получаете ту же пользу, что и от настоящего голодания, но без его жёстких ограничений.<br />
               <br />Вам не нужно полностью отказываться от еды.<br /><br />
               Организм активирует процессы очищения и восстановления.<br /><br />
