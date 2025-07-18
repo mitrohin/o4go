@@ -76,16 +76,26 @@ function getImageType(filename) {
 // Функция ресайза изображения
 async function resizeImage(inputPath, outputPath, type) {
   const config = imageSizes[type];
-  
+  const ext = path.extname(inputPath).toLowerCase();
+
   try {
-    await sharp(inputPath)
-      .resize(config.width, config.height, {
-        fit: 'inside',
-        withoutEnlargement: true
-      })
-      .jpeg({ quality: config.quality })
-      .toFile(outputPath);
-    
+    let pipeline = sharp(inputPath).resize(config.width, config.height, {
+      fit: 'inside',
+      withoutEnlargement: true
+    });
+
+    if (ext === '.png') {
+      pipeline = pipeline.png({ quality: config.quality, compressionLevel: 9, adaptiveFiltering: true });
+    } else if (ext === '.jpg' || ext === '.jpeg') {
+      pipeline = pipeline.jpeg({ quality: config.quality });
+    } else {
+      // Для других форматов просто копируем
+      fs.copyFileSync(inputPath, outputPath);
+      console.log(`✓ Копия (без изменений): ${path.basename(inputPath)}`);
+      return;
+    }
+
+    await pipeline.toFile(outputPath);
     console.log(`✓ Ресайз: ${path.basename(inputPath)} -> ${type} (${config.width}x${config.height})`);
   } catch (error) {
     console.error(`✗ Ошибка ресайза ${inputPath}:`, error.message);
