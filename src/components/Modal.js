@@ -1,8 +1,9 @@
 import React from "react";
+import { createPortal } from "react-dom";
 
 export default function Modal({ open, onClose, onConfirm }) {
   if (!open) return null;
-  return (
+  const modalContent = (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60" onClick={onClose}>
       <div
         className="relative bg-[#d9d9d9] rounded-[24.5px] w-[90vw] max-w-[850px] h-[500px] flex items-center justify-start shadow-lg px-0 md:px-12"
@@ -55,4 +56,5 @@ export default function Modal({ open, onClose, onConfirm }) {
       </div>
     </div>
   );
+  return createPortal(modalContent, document.body);
 } 
