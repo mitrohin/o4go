@@ -37,9 +37,9 @@ const cards = [
 function AdvantageCard({ title, text, line }) {
   return (
     <div className="rounded-[24.5px] px-0 pt-0 pb-0 flex flex-col min-h-[180px]">
-      <div className="font-poiret text-[24px] tablet:text-[25px] text-[#000] mb-3 leading-[1.1] px-6 pt-6">{title}</div>
-      <img src={line} alt="line" className="w-full h-2 object-contain mb-4" />
-      <div className="font-montserrat text-[16px] tablet:text-[20px] text-[#000] leading-[1.4] px-6 pb-6">{text}</div>
+      <div className="font-poiret text-[24px] tablet:text-[24px] text-[#000] mb-3 leading-[1.1] px-6 pt-6">{title}</div>
+      <img src={line} alt="line" className="w-full h-px object-contain mb-4" />
+      <div className="font-montserrat text-[16px] tablet:text-[16px] text-[#000] leading-[1.4] px-6 pb-6">{text}</div>
     </div>
   );
 }
