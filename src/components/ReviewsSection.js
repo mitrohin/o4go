@@ -137,11 +137,11 @@ export default function ReviewsSection() {
         </div>
         {/* Стрелки под отзывами, по краям блока отзывов */}
         <div className="flex flex-row items-center justify-between mt-4" style={{ width: containerWidth }}>
-          <button onClick={() => handleArrow(-1)} disabled={leftDisabled} className={`flex items-center justify-center ${leftDisabled ? 'opacity-40 cursor-not-allowed' : ''}`} style={{ width: 48, height: 48 }} aria-label="Предыдущий отзыв">
-            <img src={imgArrowLeft} alt="Влево" className="w-12 h-12" />
+          <button onClick={() => handleArrow(-1)} disabled={leftDisabled} type="button" className={`flex items-center justify-center ${leftDisabled ? 'opacity-40 cursor-not-allowed' : ''}`} style={{ width: 48, height: 48 }} aria-label="Предыдущий отзыв">
+            <img src={imgArrowLeft} alt="Влево" className="w-[51px] h-[16px]" />
           </button>
-          <button onClick={() => handleArrow(1)} disabled={rightDisabled} className={`flex items-center justify-center ${rightDisabled ? 'opacity-40 cursor-not-allowed' : ''}`} style={{ width: 48, height: 48 }} aria-label="Следующий отзыв">
-            <img src={imgArrowRight} alt="Вправо" className="w-12 h-12" />
+          <button onClick={() => handleArrow(1)} disabled={rightDisabled} type="button" className={`flex items-center justify-center ${rightDisabled ? 'opacity-40 cursor-not-allowed' : ''}`} style={{ width: 48, height: 48 }} aria-label="Следующий отзыв">
+            <img src={imgArrowRight} alt="Вправо" className="w-[51px] h-[16px]" />
           </button>
         </div>
       </div>
