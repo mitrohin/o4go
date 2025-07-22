@@ -161,21 +161,21 @@ export default function FactsSection() {
                 <button
                   onClick={() => idx > 0 && slideTo(idx - 1)}
                   disabled={idx === 0}
-                  className={`absolute left-8 bottom-8 flex items-center justify-center z-10 ${idx === 0 ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'}`}
-                  style={{ width: 48, height: 48 }}
+                  type="button"
+                  className={`absolute left-8 bottom-8 w-10 h-10 flex items-center justify-center z-10 bg-transparent ${idx === 0 ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'}`}
                   aria-label="Предыдущий факт"
                 >
-                  <img src={imgArrow2} alt="Влево" className="w-12 h-auto rotate-180" />
+                  <img src={imgArrow2} alt="Влево" className="w-[51px] h-[16px] rotate-180" />
                 </button>
                 {/* Правая стрелка (внизу) */}
                 <button
                   onClick={() => idx < facts.length - 1 && slideTo(idx + 1)}
                   disabled={idx === facts.length - 1}
-                  className={`absolute right-8 bottom-8 flex items-center justify-center z-10 ${idx === facts.length - 1 ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'}`}
-                  style={{ width: 48, height: 48 }}
+                  type="button"
+                  className={`absolute right-8 bottom-8 w-10 h-10 flex items-center justify-center z-10 bg-transparent ${idx === facts.length - 1 ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'}`}
                   aria-label="Следующий факт"
                 >
-                  <img src={imgArrow1} alt="Вправо" className="w-12 h-auto" />
+                  <img src={imgArrow1} alt="Вправо" className="w-[51px] h-[16px]" />
                 </button>
                 {/* Номер */}
                 <div className="absolute font-poiret text-[32px] sm:text-[40px] text-[#000] not-italic leading-[0] select-none lg:left-[50px] lg:top-[148px] left-1/2 bottom-8 -translate-x-1/2 text-center lg:bottom-auto lg:translate-x-0">
