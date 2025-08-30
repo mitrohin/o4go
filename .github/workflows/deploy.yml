@@ -79,7 +79,6 @@ jobs:
       run: |
         cp public/index-bitrix.html public/index.html
         cp public/manifest-bitrix.json public/manifest.json
-        cp public/.htaccess public/.htaccess
       
     - name: Build project for Bitrix
       run: PUBLIC_URL=/fmd/ npm run build
