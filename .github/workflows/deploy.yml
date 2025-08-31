@@ -30,6 +30,9 @@ jobs:
     - name: Build project
       run: PUBLIC_URL= npm run build
       
+    - name: Remove .htaccess for root server
+      run: rm -f build/.htaccess
+      
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.3
       with:
