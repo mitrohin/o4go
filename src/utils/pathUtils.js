@@ -5,13 +5,14 @@ export function getBasePath() {
     return '';
   }
   
-  // В production определяем путь из window.location
+  // В production используем PUBLIC_URL для статических ресурсов
+  // и определяем путь из window.location для динамических путей
   if (typeof window !== 'undefined') {
     const pathname = window.location.pathname;
     
     // Если приложение находится в корне домена
     if (pathname === '/' || pathname === '') {
-      return '';
+      return process.env.PUBLIC_URL || '';
     }
     
     // Если приложение в подпапке, извлекаем путь

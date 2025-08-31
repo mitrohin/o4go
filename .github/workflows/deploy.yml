@@ -28,7 +28,7 @@ jobs:
       run: node optimize-images.mjs
       
     - name: Build project
-      run: npm run build
+      run: PUBLIC_URL= npm run build
       
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.3
@@ -76,7 +76,7 @@ jobs:
       run: node optimize-images.mjs
       
     - name: Build project
-      run: npm run build
+      run: PUBLIC_URL=/fmd/ npm run build
       
     - name: Deploy to Bitrix server
       uses: appleboy/ssh-action@v1.0.3
