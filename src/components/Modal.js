@@ -1,5 +1,6 @@
 import React from "react";
 import { createPortal } from "react-dom";
+import { getAssetPath } from '../utils/pathUtils';
 
 export default function Modal({ open, onClose, onConfirm }) {
   if (!open) return null;
@@ -22,10 +23,10 @@ export default function Modal({ open, onClose, onConfirm }) {
           <div className="relative w-[200px] h-[200px] flex items-center justify-center">
             {/* Белый круглый фон */}
             <div className="absolute w-[200px] h-[200px] rounded-full bg-white z-0 left-0 top-0" />
-            <img src={process.env.PUBLIC_URL + '/images/4b3640efcb28f98a99562eecc5baa15db714fff4.svg'} alt="Ellipse" className="absolute w-[177px] h-[177px] left-[11.5px] top-[10.8px] z-10" />
+            <img src={getAssetPath('images/4b3640efcb28f98a99562eecc5baa15db714fff4.svg')} alt="Ellipse" className="absolute w-[177px] h-[177px] left-[11.5px] top-[10.8px] z-10" />
             <div
               className="absolute w-[180px] h-[180px] left-[10px] top-[10px] bg-center bg-cover bg-no-repeat z-20"
-              style={{ backgroundImage: `url('${process.env.PUBLIC_URL}/images/ogorod_lemon.png')` }}
+              style={{ backgroundImage: `url('${getAssetPath('images/ogorod_lemon.png')}')` }}
             />
           </div>
         </div>

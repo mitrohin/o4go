@@ -1,10 +1,9 @@
 RewriteEngine On
-RewriteBase /
 
-# Handle React Router
+# Handle React Router - works for both root and subdirectories
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+RewriteRule . index.html [L]
 
 # Cache static assets
 <FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">

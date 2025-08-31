@@ -75,13 +75,8 @@ jobs:
     - name: Optimize images before build
       run: node optimize-images.mjs
       
-    - name: Prepare Bitrix build files
-      run: |
-        cp public/index-bitrix.html public/index.html
-        cp public/manifest-bitrix.json public/manifest.json
-      
-    - name: Build project for Bitrix
-      run: PUBLIC_URL=/fmd/ npm run build
+    - name: Build project
+      run: npm run build
       
     - name: Deploy to Bitrix server
       uses: appleboy/ssh-action@v1.0.3
