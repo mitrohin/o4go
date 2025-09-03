@@ -133,7 +133,7 @@ export default function Footer() {
           <div className="relative w-full h-[65px]">
             <div className="absolute right-[40px] top-[0px] w-[270px]">
               <a
-                href="/policy.pdf"
+                href="https://www.ogorodforgorod.ru/docs/policy.docx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-montserrat text-[16px] text-white leading-none cursor-pointer hover:underline"
