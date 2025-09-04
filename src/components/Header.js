@@ -58,7 +58,7 @@ export default function Header() {
             style={{ backgroundImage: `url('${imgOgorodDark1}')` }}
             aria-label="На главную"
             onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.open('https://www.ogorodforgorod.ru', '_blank', 'noopener,noreferrer');
               setMenuOpen(false);
             }}
             type="button"
@@ -81,6 +81,7 @@ export default function Header() {
               <span className="block w-6 h-0.5 bg-black -rotate-45 absolute" style={{ top: '18px' }} />
             </button>
             <nav className="flex flex-col gap-8 items-center mt-8">
+              <a href="https://www.ogorodforgorod.ru" target="_blank" rel="noopener noreferrer" className="font-montserrat text-[20px] text-black not-italic leading-none whitespace-nowrap hover:underline focus:underline transition-all" onClick={() => setMenuOpen(false)}>ГЛАВНАЯ СТРАНИЦА</a>
               <a href="#program" className="font-montserrat text-[20px] text-black not-italic leading-none whitespace-nowrap hover:underline focus:underline transition-all" onClick={() => setMenuOpen(false)}>ПРОГРАММА FMD</a>
               <a href="#menu" className="font-montserrat text-[20px] text-black not-italic leading-none whitespace-nowrap hover:underline focus:underline transition-all" onClick={() => setMenuOpen(false)}>МЕНЮ FMD</a>
               <a href="#reviews" className="font-montserrat text-[20px] text-black not-italic leading-none whitespace-nowrap hover:underline focus:underline transition-all" onClick={() => setMenuOpen(false)}>ОТЗЫВЫ</a>

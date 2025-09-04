@@ -5,8 +5,10 @@ import { useState } from "react";
 
 export default function ActionButtons({ buttonColor }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalVariant, setModalVariant] = useState("order");
   const background = buttonColor || "rgba(255,255,255,0.7)";
-  const handleOpen = () => setModalOpen(true);
+  const handleOpenOrder = () => { setModalVariant("order"); setModalOpen(true); };
+  const handleOpenContact = () => { setModalVariant("contact"); setModalOpen(true); };
   const handleClose = () => setModalOpen(false);
   const handleConfirm = () => {
     window.open("https://wa.me/79164280183", "_blank");
@@ -18,19 +20,19 @@ export default function ActionButtons({ buttonColor }) {
         <button
           className="custom-shimmer rounded-[24.5px] w-full md:w-[300px] h-[48px] md:h-[50px] text-black text-[14px] md:text-[20px] font-montserrat shadow border border-gray transition-all duration-200"
           style={{ background }}
-          onClick={handleOpen}
+          onClick={handleOpenOrder}
         >
           <span className="shimmer-content">ЗАКАЗАТЬ</span>
         </button>
         <button
           className="custom-shimmer rounded-[24.5px] w-full md:w-[300px] h-[48px] md:h-[50px] text-black text-[14px] md:text-[20px] font-montserrat shadow border border-gray transition-all duration-200"
           style={{ background }}
-          onClick={handleOpen}
+          onClick={handleOpenContact}
         >
           <span className="shimmer-content">СВЯЗАТЬСЯ С НАМИ</span>
         </button>
       </div>
-      <Modal open={modalOpen} onClose={handleClose} onConfirm={handleConfirm} />
+      <Modal open={modalOpen} onClose={handleClose} onConfirm={handleConfirm} variant={modalVariant} />
     </>
   );
 } 

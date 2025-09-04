@@ -2,8 +2,9 @@ import React from "react";
 import { createPortal } from "react-dom";
 import { getAssetPath } from '../utils/pathUtils';
 
-export default function Modal({ open, onClose, onConfirm }) {
+export default function Modal({ open, onClose, onConfirm, variant = "order" }) {
   if (!open) return null;
+  const isContact = variant === "contact";
   const modalContent = (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60" onClick={onClose}>
       <div
@@ -33,10 +34,14 @@ export default function Modal({ open, onClose, onConfirm }) {
         {/* Контент справа */}
         <div className="ml-auto mr-0 w-full md:w-[520px] flex flex-col items-center text-center pr-4 md:pr-0">
           <div className="mt-[49px] w-full">
-            <p className="font-poiret text-[24px] md:text-[40px] text-center whitespace-nowrap">Заказать программу FMD</p>
+            <p className="font-poiret text-[24px] md:text-[40px] text-center whitespace-nowrap">{isContact ? "Связаться с нами" : "Заказать программу FMD"}</p>
           </div>
           <div className="mt-[30px] w-full">
-            <p className="font-montserrat text-[14px] md:text-[20px]">Сейчас вы будете перенаправлены на номер<br/><br/>WhatsApp +7 (916) 428-01-83<br/><br/>где наш менеджер поможет вам быстро и удобно оформить заказ.</p>
+            {isContact ? (
+              <p className="font-montserrat text-[14px] md:text-[20px]">Сейчас вы будете перенаправлены на номер<br/><br/>WhatsApp <a href="tel:+79164280183" className="hover:underline focus:underline">+7 (916) 428-01-83</a><br/><br/>где вы можете задать любые вопросы или просто пообщаться с нашим менеджером.</p>
+            ) : (
+              <p className="font-montserrat text-[14px] md:text-[20px]">Сейчас вы будете перенаправлены на номер<br/><br/>WhatsApp <a href="tel:+79164280183" className="hover:underline focus:underline">+7 (916) 428-01-83</a><br/><br/>где наш менеджер поможет вам быстро и удобно оформить заказ.</p>
+            )}
           </div>
           {/* Кнопки */}
           <div className="mt-[40px] flex gap-6 justify-center w-full">

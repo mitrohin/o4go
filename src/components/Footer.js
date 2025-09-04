@@ -4,8 +4,10 @@ import Modal from "./Modal";
 
 export default function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalVariant, setModalVariant] = useState("order");
   function handleOrderClick(e) {
     e.preventDefault();
+    setModalVariant("order");
     setIsModalOpen(true);
   }
   function handleModalClose() {
@@ -62,8 +64,8 @@ export default function Footer() {
           <div
             className="w-[206.63px] h-[97px] bg-center bg-contain bg-no-repeat cursor-pointer mt-4"
             style={{ backgroundImage: `url('${imgOgorodLight1}')` }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            title="Наверх"
+            onClick={() => window.open('https://www.ogorodforgorod.ru', '_blank', 'noopener,noreferrer')}
+            title="Главная страница Ogorod for Gorod"
           />
           {/* Политика и копирайт */}
           <div className="flex flex-col items-center gap-2 mt-6">
@@ -85,8 +87,8 @@ export default function Footer() {
             <div
               className="absolute left-10 top-[470px] w-[206.63px] h-[97px] bg-center bg-contain bg-no-repeat cursor-pointer"
               style={{ backgroundImage: `url('${imgOgorodLight1}')` }}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              title="Наверх"
+              onClick={() => window.open('https://www.ogorodforgorod.ru', '_blank', 'noopener,noreferrer')}
+              title="Главная страница Ogorod for Gorod"
             />
             {/* Вертикальная линия и меню */}
             <div className="absolute right-[250px] top-[52px] h-[303px] w-0 flex items-center justify-center">
@@ -146,8 +148,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        {/* Модальное окно заказа */}
-        <Modal open={isModalOpen} onClose={handleModalClose} onConfirm={handleModalConfirm} />
+        {/* Модальное окно */}
+        <Modal open={isModalOpen} onClose={handleModalClose} onConfirm={handleModalConfirm} variant={modalVariant} />
       </div>
     </footer>
   );

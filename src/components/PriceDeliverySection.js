@@ -29,7 +29,7 @@ export default function PriceDeliverySection() {
           </div>
           <div className="flex flex-row items-center gap-4 mt-2">
             <img src={imgPngtreeWhatsappPhoneIcon9015282} alt="WhatsApp" className="w-[50px] h-[50px] filter grayscale" />
-            <div className="font-poiret text-[24px] text-[#000]">+7 (916) 428-01-83</div>
+            <a href="tel:+79164280183" className="font-poiret text-[24px] text-[#000] hover:underline focus:underline">+7 (916) 428-01-83</a>
           </div>
         </div>
         {/* Картинка справа (на десктопе) */}
