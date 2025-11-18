@@ -73,9 +73,13 @@ export default function MenuExampleSection() {
     const SLIDE_WIDTH = CARD_WIDTH + CARD_GAP;
     const delta = dragLastX.current - dragStartX.current;
     if (Math.abs(delta) > SLIDE_WIDTH / 4) {
-      if (delta < 0 && idx < menuCards.length - 1) slideTo(idx + 1);
-      else if (delta > 0 && idx > 0) slideTo(idx - 1);
-      else resetSlide();
+      if (delta < 0) {
+        // Свайп влево - следующий слайд с циклом
+        slideTo(idx >= menuCards.length - 1 ? 0 : idx + 1);
+      } else if (delta > 0) {
+        // Свайп вправо - предыдущий слайд с циклом
+        slideTo(idx === 0 ? menuCards.length - 1 : idx - 1);
+      }
     } else {
       resetSlide();
     }
@@ -135,10 +139,8 @@ export default function MenuExampleSection() {
                   key={i}
                   {...card}
                   showArrows={true}
-                  onPrev={() => idx > 0 && slideTo(idx - 1)}
-                  onNext={() => idx < menuCards.length - 1 && slideTo(idx + 1)}
-                  isFirst={i === 0 && idx === 0}
-                  isLast={i === menuCards.length - 1 && idx === menuCards.length - 1}
+                  onPrev={() => slideTo(idx === 0 ? menuCards.length - 1 : idx - 1)}
+                  onNext={() => slideTo(idx >= menuCards.length - 1 ? 0 : idx + 1)}
                 />
               ))}
             </div>
@@ -157,7 +159,7 @@ export default function MenuExampleSection() {
   );
 }
 
-function MenuCard({ title, total, items, showArrows, onPrev, onNext, isFirst, isLast }) {
+function MenuCard({ title, total, items, showArrows, onPrev, onNext }) {
   return (
     <div
       className="bg-[rgba(217,217,217,0.8)] rounded-[24.5px] p-10 w-[340px] min-h-[560px] flex flex-col items-center shadow-md relative"
@@ -184,8 +186,7 @@ function MenuCard({ title, total, items, showArrows, onPrev, onNext, isFirst, is
         <>
           <button
             onClick={onPrev}
-            disabled={isFirst}
-            className={`absolute left-4 bottom-4 w-10 h-10 flex items-center justify-center z-10 bg-transparent ${isFirst ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'}`}
+            className="absolute left-4 bottom-4 w-10 h-10 flex items-center justify-center z-10 bg-transparent hover:opacity-80"
             aria-label="Предыдущая карточка"
             type="button"
           >
@@ -193,8 +194,7 @@ function MenuCard({ title, total, items, showArrows, onPrev, onNext, isFirst, is
           </button>
           <button
             onClick={onNext}
-            disabled={isLast}
-            className={`absolute right-4 bottom-4 w-10 h-10 flex items-center justify-center z-10 bg-transparent ${isLast ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'}`}
+            className="absolute right-4 bottom-4 w-10 h-10 flex items-center justify-center z-10 bg-transparent hover:opacity-80"
             aria-label="Следующая карточка"
             type="button"
           >

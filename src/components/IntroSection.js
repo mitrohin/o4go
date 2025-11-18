@@ -41,7 +41,7 @@ export default function IntroSection() {
         <div className="bg-white rounded-[18px] sm:rounded-[20px] md:rounded-[24.5px] border border-black p-5 sm:p-6 md:p-8 lg:p-10 min-h-[420px] sm:min-h-[480px] md:min-h-[540px] lg:min-h-[612px] w-full sm:w-[220px] md:w-[300px] lg:w-[380px] flex flex-col items-center mb-4 sm:mb-0">
           <div className="font-poiret text-[24px] sm:text-[28px] md:text-[32px] lg:text-[40px] text-[#000] mb-3 sm:mb-4 text-center leading-none">Результат</div>
           <div className="font-montserrat text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-[#000] text-left leading-normal w-full">
-            <p>Минус 2–3 кг.</p>
+            <p>Минус 2–4 кг.</p>
             <p>Потеря веса происходит естественно, без истощения мышц.</p>
             <p className="mb-2">&nbsp;</p>
             <p>Лёгкость, ясность, энергия - уже на 3–4 день, словно после качественного отдыха или ретрита.</p>

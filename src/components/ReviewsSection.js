@@ -65,15 +65,19 @@ export default function ReviewsSection() {
     setOffsetX(clientX - dragStartX.current);
     dragLastX.current = clientX;
   };
-  // Завершение свайпа/drag
+  // Завершение свайпа/drag с цикличностью
   const onDragEnd = () => {
     if (!isDragging) return;
     setIsDragging(false);
     const delta = dragLastX.current - dragStartX.current;
     if (Math.abs(delta) > SLIDE_WIDTH / 4) {
-      if (delta < 0 && idx < total - visibleCount) slideTo(idx + 1);
-      else if (delta > 0 && idx > 0) slideTo(idx - 1);
-      else resetSlide();
+      if (delta < 0) {
+        // Свайп влево - следующий слайд с циклом
+        slideTo(idx >= total - visibleCount ? 0 : idx + 1);
+      } else if (delta > 0) {
+        // Свайп вправо - предыдущий слайд с циклом
+        slideTo(idx === 0 ? total - visibleCount : idx - 1);
+      }
     } else {
       resetSlide();
     }
@@ -83,12 +87,16 @@ export default function ReviewsSection() {
     setOffsetX(0);
     setTimeout(() => setTransition(''), 250);
   }
-  // Клик по стрелке
+  // Клик по стрелке с цикличностью
   const handleArrow = (dir) => {
     if (transition) return;
-    if (dir === -1 && idx === 0) return;
-    if (dir === 1 && idx >= total - visibleCount) return;
-    slideTo(idx + dir);
+    if (dir === -1) {
+      // При нажатии влево на первом слайде переходим на последний
+      slideTo(idx === 0 ? total - visibleCount : idx - 1);
+    } else {
+      // При нажатии вправо на последнем слайде переходим на первый
+      slideTo(idx >= total - visibleCount ? 0 : idx + 1);
+    }
   };
   // Плавный slide к новому индексу
   function slideTo(newIdx) {
@@ -107,10 +115,6 @@ export default function ReviewsSection() {
     cursor: isDragging ? 'grabbing' : 'grab',
     userSelect: 'none',
   };
-  // Отключение стрелок
-  const leftDisabled = idx === 0;
-  const rightDisabled = idx >= total - visibleCount;
-
   return (
     <section id="reviews" className="relative w-full flex flex-col items-center justify-center py-12 bg-[#fffefb]">
       <div className="text-center mb-16">
@@ -137,10 +141,10 @@ export default function ReviewsSection() {
         </div>
         {/* Стрелки под отзывами, по краям блока отзывов */}
         <div className="flex flex-row items-center justify-between mt-4" style={{ width: containerWidth }}>
-          <button onClick={() => handleArrow(-1)} disabled={leftDisabled} type="button" className={`flex items-center justify-center ${leftDisabled ? 'opacity-40 cursor-not-allowed' : ''}`} style={{ width: 48, height: 48 }} aria-label="Предыдущий отзыв">
+          <button onClick={() => handleArrow(-1)} type="button" className="flex items-center justify-center hover:opacity-80" style={{ width: 48, height: 48 }} aria-label="Предыдущий отзыв">
             <img src={imgArrowLeft} alt="Влево" className="w-[51px] h-[16px]" />
           </button>
-          <button onClick={() => handleArrow(1)} disabled={rightDisabled} type="button" className={`flex items-center justify-center ${rightDisabled ? 'opacity-40 cursor-not-allowed' : ''}`} style={{ width: 48, height: 48 }} aria-label="Следующий отзыв">
+          <button onClick={() => handleArrow(1)} type="button" className="flex items-center justify-center hover:opacity-80" style={{ width: 48, height: 48 }} aria-label="Следующий отзыв">
             <img src={imgArrowRight} alt="Вправо" className="w-[51px] h-[16px]" />
           </button>
         </div>

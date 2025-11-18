@@ -9,13 +9,13 @@ const facts = [
   },
   {
     num: "02/06",
-    title: "Минус ~2–3 кг",
-    text: "После трёх циклов FMD потеря жира составила примерно 2,3 кг без снижения мышечной массы"
+    title: "Минус ~2–4 кг",
+    text: "После трёх циклов FMD потеря жира составила примерно 2-4 кг без снижения мышечной массы"
   },
   {
     num: "03/06",
-    title: "Снижение на −30–60 % гормона IGF-1",
-    text: "Клеточные исследования, животные и клинические испытания показывают снижение уровня гормона  IGF‑1, участвующим в процессах старения, на 30–60 % во время FMD"
+    title: "Снижение на −30–60 % гормона IGF-1",
+    text: "Клеточные исследования, животные и клинические испытания показывают снижение уровня гормона  IGF‑1, участвующим в процессах старения, на 30–60 % во время FMD"
   },
   {
     num: "04/06",
@@ -30,7 +30,7 @@ const facts = [
   {
     num: "06/06",
     title: "Улучшение показателей метаболизма",
-    text: "Снижение HOMA‑IR (инсулинорезистентности)<br>Падение HbA1c на 0.3–1 %<br>Уменьшение уровня глюкозы, инсулина и воспалительных маркеров (CRP)"
+    text: "Снижение HOMA‑IR (инсулинорезистентности)<br>Падение HbA1c на 0.3–1 %<br>Уменьшение уровня глюкозы, инсулина и воспалительных маркеров (CRP)"
   },
 ];
 
@@ -90,9 +90,13 @@ export default function FactsSection() {
     const SLIDE_WIDTH = cardWidth + CARD_GAP;
     const delta = dragLastX.current - dragStartX.current;
     if (Math.abs(delta) > SLIDE_WIDTH / 4) {
-      if (delta < 0 && idx < total - 1) slideTo(idx + 1);
-      else if (delta > 0 && idx > 0) slideTo(idx - 1);
-      else resetSlide();
+      if (delta < 0) {
+        // Свайп влево - следующий слайд с циклом
+        slideTo(idx >= total - 1 ? 0 : idx + 1);
+      } else if (delta > 0) {
+        // Свайп вправо - предыдущий слайд с циклом
+        slideTo(idx === 0 ? total - 1 : idx - 1);
+      }
     } else {
       resetSlide();
     }
@@ -159,20 +163,18 @@ export default function FactsSection() {
               >
                 {/* Левая стрелка (внизу) */}
                 <button
-                  onClick={() => idx > 0 && slideTo(idx - 1)}
-                  disabled={idx === 0}
+                  onClick={() => slideTo(idx === 0 ? facts.length - 1 : idx - 1)}
                   type="button"
-                  className={`absolute left-8 bottom-8 w-10 h-10 flex items-center justify-center z-10 bg-transparent ${idx === 0 ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'}`}
+                  className="absolute left-8 bottom-8 w-10 h-10 flex items-center justify-center z-10 bg-transparent hover:opacity-80"
                   aria-label="Предыдущий факт"
                 >
                   <img src={imgArrow2} alt="Влево" className="w-[51px] h-[16px] rotate-180" />
                 </button>
                 {/* Правая стрелка (внизу) */}
                 <button
-                  onClick={() => idx < facts.length - 1 && slideTo(idx + 1)}
-                  disabled={idx === facts.length - 1}
+                  onClick={() => slideTo(idx >= facts.length - 1 ? 0 : idx + 1)}
                   type="button"
-                  className={`absolute right-8 bottom-8 w-10 h-10 flex items-center justify-center z-10 bg-transparent ${idx === facts.length - 1 ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'}`}
+                  className="absolute right-8 bottom-8 w-10 h-10 flex items-center justify-center z-10 bg-transparent hover:opacity-80"
                   aria-label="Следующий факт"
                 >
                   <img src={imgArrow1} alt="Вправо" className="w-[51px] h-[16px]" />
