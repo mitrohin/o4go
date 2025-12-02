@@ -22,7 +22,7 @@ export default function Hero() {
         {/* Старт программы */}
         <div className="w-full max-w-[600px] md:max-w-[850px] text-center mb-2 md:mb-0">
           <div className="font-montserrat text-white text-[16px] md:text-[24px] pb-2 md:pb-4 drop-shadow">Ближайший старт программы</div>
-          <div className="font-poiret text-white text-[32px] md:text-[40px] pb-6 md:pb-16 drop-shadow">01/12/2025</div>
+          <div className="font-poiret text-white text-[32px] md:text-[40px] pb-6 md:pb-16 drop-shadow">08/12/2025</div>
         </div>
         {/* Кнопки */}
         <ActionButtons />
