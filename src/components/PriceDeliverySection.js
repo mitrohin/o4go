@@ -15,7 +15,7 @@ export default function PriceDeliverySection() {
         <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 h-[320px] md:h-[625px] bg-center bg-cover flex-shrink-0" style={{ backgroundImage: `url('${imgE03B81Df852245A787Cc6F2D65Da03661}')` }} />
         {/* Текст справа */}
         <div className="w-full md:basis-1/2 md:max-w-1/2 min-w-0 flex flex-col justify-center mt-8 md:mt-0 md:ml-8 px-4 md:px-10 pb-8 md:pb-0">
-          <div className="font-poiret text-[32px] text-[#000] mb-24 leading-tight">Стоимость меню<br />21 800</div>
+          <div className="font-poiret text-[32px] text-[#000] mb-24 leading-tight">Стоимость меню<br />22 800</div>
           <div className="font-montserrat text-[16px] md:text-[20px] text-[#000] leading-normal mb-2">Меню включает 5 дней основной диеты и 2 дополнительных дня для плавного выхода.<br /><br />В пределах МКАД доставка осуществляется бесплатно.<br /><br />Стоимость доставки за МКАД:<br />До 5 км - 500 рублей<br />Далее 5 км - 45 рублей за км<br /><br />Оплата осуществляется online (по ссылке или по QR-коду) после выставления счета.</div>
         </div>
       </div>
