@@ -70,7 +70,7 @@ export default function Modal({ open, onClose, onConfirm, variant = "order" }) {
           <div className="mt-6 w-full max-w-[420px] space-y-4 font-montserrat text-[14px] md:text-[20px] leading-relaxed">
             <p>Сейчас вы будете перенаправлены на номер</p>
             <p>
-              WhatsApp{" "}
+              Telegram{" "}
               <a href="tel:+79164280183" className="hover:underline focus:underline">
                 +7 (916) 428-01-83
               </a>
