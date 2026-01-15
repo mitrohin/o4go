@@ -11,7 +11,7 @@ export default function ActionButtons({ buttonColor }) {
   const handleOpenContact = () => { setModalVariant("contact"); setModalOpen(true); };
   const handleClose = () => setModalOpen(false);
   const handleConfirm = () => {
-    window.open("https://wa.me/79164280183", "_blank");
+    window.open("https://t.me/+79164280183", "_blank");
     setModalOpen(false);
   };
   return (
